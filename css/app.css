@@ -20,6 +20,10 @@ ul {
     list-style: none;
 }
 
+.row.wide {
+    max-width: 90rem;
+}
+
 .nav {
     background: #ffffff;
     min-height: 50px;
@@ -118,8 +122,4 @@ ul {
     .nav-mobile {
         display: block !important;
     }
-}
-
-.container {
-    height: 80%;
 }
