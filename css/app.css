@@ -125,7 +125,7 @@ ul {
 }
 
 
-/*login and log out section */
+/* start the sign up section */
 
 .login-box {
     margin-top: 5.5em;
@@ -351,3 +351,21 @@ ul {
     color: #fefefe;
     text-align: center;
 }
+
+
+/*end signup page */
+
+
+/*start sign in page */
+
+.log-in-form {
+    width: 40%;
+    border: 1px solid #cacaca;
+    margin-top: 5.5em;
+    margin-left: 30%;
+    padding: 1rem;
+    border-radius: 0;
+}
+
+
+/*end sign in page */
