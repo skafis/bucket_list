@@ -40,6 +40,55 @@ def initdb_command():
     init_db()
     print 'Initialized the database.'
 
+####################################################################
+#views function
+####################################################################
+
+#show list
+@app.route('/')
+def show_entries():
+    db = get_db()
+    cur = db.execute('select bucketlist_name, bucketlist_description from bucket_list order by id desc')
+    entries = cur.fetchall()
+
+    return render_template('show_entries.html', entries=entries)
+
+#add new entry
+@app.route('/add', methods=['POST'])
+def add_entry():
+    if not session.get('logged_in'):
+        abort(401)
+    db = get_db()
+    db.execute('insert into bucket_list (bucketlist_name, bucketlist_description) values (?, ?)',
+                 [request.form['bucketlist_name'], request.form['bucketlist_description']])
+    db.commit()
+    flash('New entry was successfully posted')
+    return redirect(url_for('show_entries'))
+
+#login 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != app.config['USERNAME']:
+            error = 'Invalid username'
+        elif request.form['password'] != app.config['PASSWORD']:
+            error = 'Invalid password'
+        else:
+            session['logged_in'] = True
+            flash('You were logged in')
+            return redirect(url_for('show_entries'))
+    return render_template('login.html', error=error)
+
+#logout
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    flash('You were logged out')
+    return redirect(url_for('show_entries'))
+
+
+
 
 ###################################################################
 #Database Connections
