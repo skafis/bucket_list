@@ -1,7 +1,7 @@
 to run go to open the folder in terminal
 run in terminal
 $ export FLASK_APP=main.py
-# initialze db
+### initialze db#
 $ flask init
 $ flask run
 
