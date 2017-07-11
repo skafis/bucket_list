@@ -1,3 +1,5 @@
-VENV/
+flask_blog/
+flaskr/
+venv/
 *pyc
 

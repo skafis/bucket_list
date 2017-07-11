@@ -1,6 +1,6 @@
 # views.py
 
-from flask import render_template
+from flask import render_template, Flask, redirect, request
 
 from app import app
 
@@ -11,3 +11,10 @@ def index():
 @app.route('/about')
 def about():
     return render_template("about.html")
+
+
+@app.route('/add' methods=['GET', 'POST'])
+def create_bucketlist():
+	if request.method == 'POST':
+		
+	
