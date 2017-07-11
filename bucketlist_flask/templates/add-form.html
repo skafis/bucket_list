@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block body %}
+
+
+    <section class="contact-us-section">
+        <div class="row medium-unstack">
+            <div class="columns contact-us-section-right">
+                <h1 class="contact-us-header">Add new Bucket List</h1>
+                
+            {% if session.logged_in %}
+                <form class="contact-us-form" action="{{ url_for('add_entry') }}" method=post>
+                    <input type="text" placeholder="Title" name=bucketlist_name>
+                    <textarea name="bucketlist_description" id="" rows="12" placeholder="add more details to your bucket list item"></textarea>
+                    <div class="contact-us-form-actions">
+                        <input type="submit" class="button" value="Add" /> </div>
+                </form>
+
+  {% endif %}
+            </div>
+        </div>
+    </section>
+    {% endblock %}

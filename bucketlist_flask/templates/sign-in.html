@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>log in</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/foundation.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+
+<body>
+    <section class="row">
+        <div class="container">
+        
+            <form class="log-in-form" {{ url_for('login') }}" method=post>
+                <h4 class="text-center">Log in with you email account</h4>
+                {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+                <label>Username
+                    <input type="text" placeholder="somebody" name=username> </label>
+                <label>Password
+                    <input type="password" placeholder="Password" name=password> </label>
+                <input id="show-password" type="checkbox">
+                <label for="show-password">Show password</label>
+                <p>
+                    <input type="submit" class="button expanded" value="Log in"> </p>
+                <p class="text-center"><a href="#">Forgot your password?</a></p>
+            </form>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='js/vendor/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/vendor/what-input.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/vendor/foundation.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script type="text/javascript">
+    </script>
+</body>
+
+</html>
+

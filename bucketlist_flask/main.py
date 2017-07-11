@@ -63,7 +63,8 @@ def add_entry():
                  [request.form['bucketlist_name'], request.form['bucketlist_description']])
     db.commit()
     flash('New entry was successfully posted')
-    return redirect(url_for('show_entries'))
+    # return redirect(url_for('show_entries'))
+    return render_template('add-form.html')
 
 #login 
 @app.route('/login', methods=['GET', 'POST'])
@@ -78,7 +79,7 @@ def login():
             session['logged_in'] = True
             flash('You were logged in')
             return redirect(url_for('show_entries'))
-    return render_template('login.html', error=error)
+    return render_template('sign-in.html', error=error)
 
 #logout
 @app.route('/logout')

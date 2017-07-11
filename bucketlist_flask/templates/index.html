@@ -1,8 +1,38 @@
 {% extends "base.html" %}
-{% block title %}Home{% endblock %}
 {% block body %}
-<div class="jumbotron">
-  <h1>Flask Is Awesome</h1>
-  <p class="lead">And I'm glad to be learning so much about it!</p>
-</div>
-{% endblock %}
+
+    <section class="row">
+        <div class="row small-up-1 medium-up-2 large-up-3">
+            <div class="column">
+                <div class="callout">
+                    <p><img src="{{ url_for('static', filename='img/download.jpg') }}" alt="image of a planet called Pegasi B"></p>
+                    <p class="lead">Watch Borealis </p>
+                    <p class="subheader">Travel to North or South pole and watch the aurora lights</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="callout">
+                    <p><img src="{{ url_for('static', filename='img/skydiving.jpg') }}" alt="image of a planet called Pegasi B"></p>
+                    <p class="lead">Sky Diving </p>
+                    <p class="subheader">Go sky diving from either plane or mountain</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="callout">
+                    <p><img src="{{ url_for('static', filename='img/kayaking.jpg') }}" alt="image of a planet called Pegasi B"></p>
+                    <p class="lead">kayaking</p>
+                    <p class="subheader">Go kayaking in one the most rapid rivers in kenya</p>
+                </div>
+            </div>
+            {% for entry in entries %}
+            <div class="column">
+                <div class="callout">
+                    <p>Pegasi B</p>
+                    <p><img src="https://placehold.it/400x370&text=Pegasi B" alt="image of a planet called Pegasi B"></p>
+                    <p class="lead">{{ entry.bucketlist_name }}</p>
+                    <p class="subheader">entry.bucketlist_description </p>
+                </div>
+            </div>
+            {% endfor %}
+    </section>
+    {% endblock %}
