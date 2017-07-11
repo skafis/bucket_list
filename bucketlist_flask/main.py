@@ -51,7 +51,7 @@ def show_entries():
     cur = db.execute('select bucketlist_name, bucketlist_description from bucket_list order by id desc')
     entries = cur.fetchall()
 
-    return render_template('show_entries.html', entries=entries)
+    return render_template('index.html', entries=entries)
 
 #add new entry
 @app.route('/add', methods=['POST'])
