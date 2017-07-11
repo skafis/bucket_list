@@ -5,3 +5,8 @@ $ export FLASK_APP=main.py
 $ flask init
 $ flask run
 
+#####
+#log in details
+#####
+username = admin
+pass = default

@@ -24,11 +24,12 @@
                 <li> <a href="{{ url_for('logout') }}"><i class="fa fa-envelope"></i> log out</a> </li>
                 {% endif %}
             </ul>
-            {% for message in get_flashed_messages() %}
-              <div class=flash>{{ message }}</div>
-            {% endfor %}
+            
         </div>
     </nav>
+    {% for message in get_flashed_messages() %}
+              <div class=flash>{{ message }}</div>
+            {% endfor %}
     {% block body %}{% endblock %}
     <script src="{{ url_for('static', filename='js/vendor/jquery.js') }}"></script>
     <script src="{{ url_for('static', filename='js/vendor/what-input.js') }}"></script>
